@@ -4,15 +4,35 @@
 <title>Loading...</title>
 <style>
 body {
-display:flex; justify-content:center; align-items:center; height:100vh;
-background:#000; color:#fff; font-family:sans-serif; margin:0; text-align:center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #000;
+  color: #fff;
+  font-family: sans-serif;
+  margin: 0;
+  text-align: center;
+  overflow: hidden;
 }
-#loading { font-size:28px;}
+#loading { 
+  font-size: 28px;
+}
 #btn {
-font-size:24px; padding:20px 40px; cursor:pointer; background:#222;
-color:#fff; border:2px solid #555; display:none;
+  font-size: 24px;
+  padding: 20px 40px;
+  cursor: pointer;
+  background: #222;
+  color: #fff;
+  border: 2px solid #555;
+  display: none;
 }
-img { max-width:90vw; max-height:90vh; display:none;}
+#scareImg {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  display: none;
+}
 </style>
 </head>
 <body>
@@ -22,15 +42,16 @@ img { max-width:90vw; max-height:90vh; display:none;}
 <audio id="growl" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_e0b5a3c8d2.mp3"></audio>
 <script>
 setTimeout(() => {
-document.getElementById('loading').style.display = 'none';
-document.getElementById('btn').style.display = 'inline-block';
+  document.getElementById('loading').style.display = 'none';
+  document.getElementById('btn').style.display = 'inline-block';
 }, 3000);
 
 function showScare() {
-document.getElementById('btn').style.display = 'none';
-document.getElementById('scareImg').style.display = 'block';
-document.getElementById('growl').volume = 0.25;
-document.getElementById('growl').play();
+  document.getElementById('btn').style.display = 'none';
+  const img = document.getElementById('scareImg');
+  img.style.display = 'block';
+  document.getElementById('growl').volume = 0.25;
+  document.getElementById('growl').play();
 }
 </script>
 </body>
